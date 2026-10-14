@@ -8,12 +8,9 @@ public class Metodos {
         Cabeza = null;
         Cola = null;
     }
-
-    // OPCIÓN 1: Agregar canción a la lista doblemente circular
     public boolean AgregarCancion(ObjCancion cancion) {
         Nodo nuevo = new Nodo();
         nuevo.setCancion(cancion);
-
         if (Cabeza == null) {
             Cabeza = nuevo;
             Cola = nuevo;
@@ -26,7 +23,6 @@ public class Metodos {
             Cabeza.setAnterior(nuevo);     // 4. La cabeza apunta hacia atrás al nuevo (cierra ciclo)
             Cola = nuevo;                  // 5. El nuevo pasa a ser la nueva cola
         }
-
         return true;
     }
 
@@ -36,13 +32,10 @@ public class Metodos {
 
         System.out.println("Ingrese el título de la canción:");
         nuevaCancion.setTitulo(sc.nextLine());
-
         System.out.println("Ingrese el cantante:");
         nuevaCancion.setCantante(sc.nextLine());
-
         System.out.println("Ingrese el año de lanzamiento:");
         nuevaCancion.setAño(sc.nextInt());
-
         return AgregarCancion(nuevaCancion);
     }
 
@@ -50,7 +43,6 @@ public class Metodos {
         if (Cabeza == null) {
             return "No hay canciones en la playlist.";
         }
-
         System.out.println("---------------------------------------------");
         System.out.println("Playlist Nacho Lee (Cabeza -> Cola)");
         Nodo actual = Cabeza;
@@ -59,13 +51,11 @@ public class Metodos {
             System.out.println(" Título: " + actual.getCancion().getTitulo()) ;
             System.out.println("- Cantante: " + actual.getCancion().getCantante() );
             System.out.println("- Año: " + actual.getCancion().getAño());
-
             if (actual == Cola) {
                 break;
             }
             actual = actual.getSiguiente();
         }
-
         System.out.println("---------------------------------------------");
         return "Playlist mostrada correctamente.";
     }
@@ -73,7 +63,6 @@ public class Metodos {
         if (Cabeza == null) {
             return "No hay canciones en la playlist.";
         }
-
         System.out.println("---------------------------------------------");
         System.out.println("Playlist Nacho Lee (Cola -> Cabeza)");
         Nodo actual = Cola;
@@ -88,7 +77,6 @@ public class Metodos {
             }
             actual = actual.getAnterior();
         }
-
         System.out.println("---------------------------------------------");
         return "Playlist en sentido inverso mostrada correctamente.";
     }
