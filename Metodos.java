@@ -30,7 +30,6 @@ public class Metodos {
         return true;
     }
 
-    // Pedir datos por teclado e insertar
     public boolean PedirYAgregarCancion(Scanner sc) {
         sc.nextLine();
         ObjCancion nuevaCancion = new ObjCancion();
@@ -47,23 +46,22 @@ public class Metodos {
         return AgregarCancion(nuevaCancion);
     }
 
-    // OPCIÓN 2: Mostrar la playlist hacia adelante (Cabeza -> Cola)
     public String MostrarListaAdelante() {
         if (Cabeza == null) {
             return "No hay canciones en la playlist.";
         }
 
         System.out.println("---------------------------------------------");
-        System.out.println("=== PLAYLIST EN BUCLE (Cabeza -> Cola) ===");
+        System.out.println("Playlist Nacho Lee (Cabeza -> Cola)");
         Nodo actual = Cabeza;
 
         while (actual != null) {
-            System.out.println("Título: " + actual.getCancion().getTitulo() 
-                             + " | Cantante: " + actual.getCancion().getCantante() 
-                             + " | Año: " + actual.getCancion().getAño());
+            System.out.println(" Título: " + actual.getCancion().getTitulo()) ;
+            System.out.println("- Cantante: " + actual.getCancion().getCantante() );
+            System.out.println("- Año: " + actual.getCancion().getAño());
 
             if (actual == Cola) {
-                break; // Detiene el ciclo al llegar a la cola para no repetir indefinidamente
+                break;
             }
             actual = actual.getSiguiente();
         }
@@ -71,24 +69,22 @@ public class Metodos {
         System.out.println("---------------------------------------------");
         return "Playlist mostrada correctamente.";
     }
-
-    // OPCIÓN 3: Mostrar la playlist hacia atrás (Cola -> Cabeza)
     public String MostrarListaAtras() {
         if (Cabeza == null) {
             return "No hay canciones en la playlist.";
         }
 
         System.out.println("---------------------------------------------");
-        System.out.println("=== PLAYLIST EN BUCLE ATRÁS (Cola -> Cabeza) ===");
+        System.out.println("Playlist Nacho Lee (Cola -> Cabeza)");
         Nodo actual = Cola;
 
         while (actual != null) {
-            System.out.println("Título: " + actual.getCancion().getTitulo() 
-                             + " | Cantante: " + actual.getCancion().getCantante() 
-                             + " | Año: " + actual.getCancion().getAño());
+            System.out.println(" Título: " + actual.getCancion().getTitulo()) ;
+            System.out.println("- Cantante: " + actual.getCancion().getCantante() );
+            System.out.println("- Año: " + actual.getCancion().getAño());
 
             if (actual == Cabeza) {
-                break; // Detiene el ciclo al llegar a la cabeza
+                break;
             }
             actual = actual.getAnterior();
         }
